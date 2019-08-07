@@ -8,14 +8,20 @@
     <script src="src/jquery.notificationbanner.min.js"></script>
     <script type="text/javascript">
       window.addEventListener("load", function(){
-        var notification = $( "div.footer" ).notificationBanner({
-          text: "Hey, Welcome!"
+        var notification = $($( "div.footer" )[1]).notificationBanner({
+          text: "Top Notification Bar",
+          position: "top"
+        });
+        $($("div.footer")[0]).notificationBanner({
+          text: "Bottom Notification Bar"
         });
       })
+
         
     </script>
   </head>
   <body>
+    <div class="footer"></div>
     <div class="footer"></div>
   </body>
 </html>

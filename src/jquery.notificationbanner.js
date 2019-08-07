@@ -5,13 +5,15 @@
             height: "20px",
             padding: "10px",
             background: "#7ee68b",
-            width: "100%"
+            width: "100%",
+            position: "bottom"
         }, options );
 
+        
         var styleContainer = {
             position: "fixed",
-            bottom: "0px",
-            transform: "translateY("+(Number(settings.height.split("px")[0])+Number(settings.padding.split("px")[0])*2)+"px)",
+            bottom: settings.position == "top" ? "auto" : "0px" ,
+            top: settings.position == "top" ? "0px" : "auto",
             width: settings.width,
             height: settings.height,
             padding: settings.padding,
@@ -21,6 +23,8 @@
             transition: "all 0.5s ease-out"
         }
 
+        styleContainer.transform =  settings.position == "top" ? "translateY(-"+(Number(settings.height.split("px")[0])+Number(settings.padding.split("px")[0])*2)+"px)" : "translateY("+(Number(settings.height.split("px")[0])+Number(settings.padding.split("px")[0])*2)+"px)";
+        
         var notificationBannerContainer = $("<div/>");
         notificationBannerContainer.css(styleContainer);
         notificationBannerContainer.text(settings.text);
