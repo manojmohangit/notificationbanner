@@ -27,7 +27,7 @@
         
         var notificationBannerContainer = $("<div/>");
         notificationBannerContainer.css(styleContainer);
-        notificationBannerContainer.text(settings.text);
+        notificationBannerContainer.html(settings.text.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi,""));
         this.append(notificationBannerContainer);
 
         setTimeout(function(){notificationBannerContainer.css({transform: "translateY(0px)"});}, 0)
